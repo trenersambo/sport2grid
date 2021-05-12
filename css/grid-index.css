@@ -135,6 +135,10 @@ ul {
     padding: 0px 0px 0px 30px;
 }
 
+.content__gallery{
+    /*Отступ между блоками Галлерея и Товары*/
+    margin: 0 0 50px 0;
+}
 
 
 .gallery__items{
@@ -153,7 +157,7 @@ ul {
 }
 
 .gallery__item img{
-    /*располжение / подрезка фото*/
+    /*располжение / подрезка фото в Галлерее*/
     position: absolute;
     top: 0;
     left: 0;
@@ -164,6 +168,69 @@ ul {
 
 .gallery__item_big{
     /*Большие фото д.занимать ДВЕ колонки*/
+    /*Т.о. БольшоеФото займет всего 4ячейки*/
     grid-column: span 2;
     grid-row: span 2;
+}
+
+
+
+.products__items{
+    /*Для товаров указал правило ГРИД*/
+    display: grid;
+    /*отступы м/у картинками с товаром*/
+    column-gap: 30px;
+    row-gap: 50px;
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/*Всю Карточку_Товара №1...№6  делаю ГРИД-Сеткой*/
+/*Это нужно,чтоб текст любого размера мог вместиться*/
+.products__item{
+    display: grid;
+    /*расставил Фото и Текст  РЯДАМИ*/
+    grid-auto-flow: row;
+
+    /*Фото=авторазмер Текст=1fr Кнопка=от40рх / 1 колонка*/
+    grid-template: auto 1fr minmax(40px, auto) / 1fr;
+
+}
+
+/*родитель для фото в ТОВАРАХ*/
+.products__image{
+    position: relative;
+    padding: 0 0 90% 0px;
+    margin: 0 0 20px 0;
+}
+
+/*для ФОТО в ТОВАРАХ задаю сво-во для вписывания в объект ГРИДА*/
+/*Родитель =products__image */
+.products__image img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+.products__name{
+    font-size: 23px;
+    color: #FFF;
+    line-height: 24px;
+    margin-bottom: 20px;
+}
+
+/*стиль для КНОПКИ в КарточкеТовара*/
+.products__button{
+    background-color: #794f45;
+    padding: 0px 30px;
+    color: #fff;
+    line-height: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    text-decoration: none;
+    justify-self: start;
 }
